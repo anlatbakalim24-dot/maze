@@ -49,9 +49,12 @@ const sorular = [
     { s: "'Çukur' dizisinin Yamaç Koçovalı'sı kimdir?", c: ["Necip Memili", "Erkan Kolçak Köstendil", "Aras Bulut İynemli"], a: "Aras Bulut İynemli" },
     { s: "'Leyla ile Mecnun'un Mecnun'u kimdir? 🐲", c: ["Ali Atay", "Serkan Keskin", "Ahmet Mümtaz Taylan"], a: "Ali Atay" },
     { s: "Bill Gates hangi yıl dünyaya geldi? 💻", c: ["1955", "1958", "1962"], a: "1955" },
+    { s: "Bir zürafanın boynunda kaç adet kemik (omur) bulunur? 🦒", c: ["7", "14", "21"], a: "7" },
+    { s: "Arı kuşu (Hummingbird) bir saniyede yaklaşık kaç kez kanat çırpar? 💻", c: ["20-30", "50-80", "110-130"], a: "50-80" },
+    { s: "Bir aslanın kükremesi yaklaşık kaç kilometre mesafeden duyulabilir? 🦁", c: ["4", "6", "8"], a: "8" },
     { s: "Üç adet kalbi olan hayvan? 💻", c: ["Ahtapot", "Karides", "Salyangoz"], a: "Ahtapot" },
     { s: "Machu Picchu hangi ülkededir? 🇵🇪", opts: ["🇧🇴 Bolivya", "🇵🇪 Peru", "🇨🇴 Kolombiya"], a: "🇵🇪 Peru" },
-    { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "4" }
+    { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "8" }
 ];
 
 function loadQuestion() {
