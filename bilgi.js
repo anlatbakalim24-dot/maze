@@ -16,7 +16,7 @@ if (!firebase.apps.length) {
 const database = firebase.database();
 
 let currentLevel = 1;
-let currentScore = 100;
+let currentScore = 10;
 const totalLevels = 25;
 
 // TÜM SORULAR AYNI FORMATTA DÜZENLENDİ (s: soru, c: seçenekler, a: doğru cevap metni)
