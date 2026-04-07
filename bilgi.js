@@ -104,7 +104,7 @@ function saveScore() {
 function showLeaderboard() {
     document.getElementById("save-area").style.display = "none";
     document.getElementById("leader-area").style.display = "block";
-    database.ref('leaderboard/').orderByChild('score').limitToLast(15).once('value', (snap) => {
+    database.ref('leaderboard/').orderByChild('score').limitToLast(10).once('value', (snap) => {
         const list = [];
         snap.forEach(child => { list.push(child.val()); });
         list.reverse();
