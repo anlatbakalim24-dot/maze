@@ -2,7 +2,8 @@
 const firebaseConfig = {
     apiKey: "AIzaSyBal_UHvT2NvH7kly-VzcNaVTj3Tr8GUOY",
     authDomain: "maze-gage.firebaseapp.com",
-    databaseURL: "https://firebaseio.com", // Veritabanı linkiniz
+    databaseURL: "https://maze-gage-default-rtdb.europe-west1.firebasedatabase.app/
+", // Veritabanı linkiniz
     projectId: "maze-gage",
     storageBucket: "maze-gage.firebasestorage.app",
     messagingSenderId: "426479057060",
