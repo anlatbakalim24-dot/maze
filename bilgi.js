@@ -26,6 +26,7 @@ const sorular = [
     { s: "2021 yılında Bitcoin'i resmi para birimi (legal tender) olarak kabul eden ilk ülke?", c: ["ElSalvadory", "Arjantin", "Panama"], a: "ElSalvador" },
     { s: "Dogecoin hangi yıl, bir "şaka" (meme) olarak piyasaya sürülmüştür?  ", c: ["2017", "2013", "2015"], a: "2013" },
     { s: "Bir altcoinin kendi blokzinciri yoksa ona ne ad verilir?", c: ["Fork", "Mainnet", "Token"], a: "Token" },
+    { s: "2025 yılında G20 ülkeleri arasında %7,6 ile en hızlı büyüme oranına ulaşan ülke?", c: ["Türkiye", "Hindistan", "Çin"], a: "Hindistan" },
     { s: "Türkiye'nin başkenti neresidir?", c: ["İstanbul", "Ankara", "İzmir"], a: "Ankara" },
     { s: "Barış Manço'nun doğum yılı nedir? 🎸", c: ["1943", "1950", "1938"], a: "1943" },
     { s: "Mustafa Kemal Atatürk'ün doğum yılı? 🇹🇷", c: ["1880", "1881", "1885"], a: "1881" },
