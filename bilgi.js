@@ -36,36 +36,15 @@ const sorular = [
     { s: "Kemal Sunal'ın doğum yılı nedir? 🎭", c: ["1944", "1950", "1940"], a: "1944" },
     { s: "Michael Jackson hangi yıl doğdu? 🕺", c: ["1958", "1960", "1955"], a: "1958" },
     { s: "Steve Jobs'un doğum yılı hangisidir? 🍎", c: ["1955", "1950", "1960"], a: "1955" },
-    { s: "'Aşk-ı Memnu' dizisinde 'Behlül' karakterini kim canlandırdı? 🍎", opts: ["🎬 Kıvanç Tatlıtuğ", "🎬 Kenan İmirzalıoğlu", "🎬 Çağatay Ulusoy"], a: 0 },
-    { s: "'Ezel' dizisinin başrol oyuncusu kimdir? ♠️", opts: ["🎬 Tuncel Kurtiz", "🎬 Kenan İmirzalıoğlu", "🎬 Barış Falay"], a: 1 },
-    { s: "'Muhteşem Yüzyıl'da 'Kanuni Sultan Süleyman'ı kim oynadı? 👑", opts: ["🎬 Halit Ergenç", "🎬 Ozan Güven", "🎬 Burak Özçivit"], a: 0 },
-    { s: "'Kurtlar Vadisi'nin Polat Alemdar'ı kimdir? 🕵️‍♂️", opts: ["🎬 Gürkan Uygun", "🎬 Oktay Kaynarca", "🎬 Necati Şaşmaz"], a: 2 },
-    { s: "'Yargı' dizisinde 'Ilgaz Savcı' karakterini kim canlandırıyor? ⚖️", opts: ["🎬 Kaan Urgancıoğlu", "🎬 Uğur Aslan", "🎬 Aras Bulut İynemli"], a: 0 },
-    { s: "'İçerde' dizisinde Sarp karakterine kim hayat verdi? 🕵️", opts: ["🎬 Çağatay Ulusoy", "🎬 Aras Bulut İynemli", "🎬 Çetin Tekindor"], a: 0 },
-    { s: "'Diriliş Ertuğrul'un başrol oyuncusu kimdir? 🏹", opts: ["🎬 Engin Altan Düzyatan", "🎬 Osman Sınav", "🎬 Nurettin Sönmez"], a: 0 },
-    { s: "'Medcezir' dizisinde Yaman karakterini kim oynadı? 🎸", opts: ["🎬 Çağatay Ulusoy", "🎬 Taner Ölmez", "🎬 Metin Akdülger"], a: 0 },
-    { s: "'Behzat Ç.' karakteriyle efsaneleşen oyuncu? 🚨", opts: ["🎬 Erdal Beşikçioğlu", "🎬 Nejat İşler", "🎬 Fatih Artman"], a: 0 },
-    { s: "'Kiralık Aşk' dizisinde Ömer karakterini kim canlandırdı? 👠", opts: ["🎬 Barış Arduç", "🎬 Seçkin Özdemir", "🎬 Can Yaman"], a: 0 },
-    { s: "'Çukur' dizisinin Yamaç Koçovalı'sı kimdir? 〽️", opts: ["🎬 Necip Memili", "🎬 Erkan Kolçak Köstendil", "🎬 Aras Bulut İynemli"], a: 2 },
-    { s: "'Kuzey Güney' dizisinde Kuzey'i kim oynadı? 👊", opts: ["🎬 Buğra Gülsoy", "🎬 Kıvanç Tatlıtuğ", "🎬 Rıza Kocaoğlu"], a: 1 },
-    { s: "'Poyraz Karayel'in başrol oyuncusu kimdir? 🕵️", opts: ["🎬 İlker Kaleli", "🎬 Burçin Terzioğlu", "🎬 Musa Uzunlar"], a: 0 },
-    { s: "'Avrupa Yakası'nda Burhan Altıntop'u kim canlandırdı? 🛋️", opts: ["🎬 Ata Demirer", "🎬 Engin Günaydın", "🎬 Gazanfer Özcan"], a: 1 },
-    { s: "'Gümüş' dizisiyle büyük çıkış yapan oyuncu? ✨", opts: ["🎬 Kıvanç Tatlıtuğ", "🎬 Songül Öden", "🎬 Serkan Çayoğlu"], a: 0 },
-    { s: "'Söz' dizisinde Sarı Komutan Yavuz'u kim oynadı? 🪖", opts: ["🎬 Tolga Sarıtaş", "🎬 Nihat Altınkaya", "🎬 Görkem Sevindik"], a: 0 },
-    { s: "'Fi' dizisinde Can Manay karakterini kim canlandırdı? 🥤", opts: ["🎬 Ozan Güven", "🎬 Mehmet Günsür", "🎬 Berrak Tüzünataç"], a: 0 },
-    { s: "'Şahsiyet' dizisindeki performansıyla Emmy alan oyuncu? 🎭", opts: ["🎬 Haluk Bilginer", "🎬 Şener Şen", "🎬 Metin Akdülger"], a: 0 },
-    { s: "'Bir Zamanlar Çukurova'nın Züleyha'sı kimdir? 🌾", opts: ["🎬 Hilal Altınbilek", "🎬 Vahide Perçin", "🎬 Selin Yeninci"], a: 0 },
-    { s: "'Masumlar Apartmanı'nda Han karakterini kim oynadı? 🧼", opts: ["🎬 Birkan Sokullu", "🎬 Farah Zeynep Abdullah", "🎬 Ezgi Mola"], a: 0 },
-    { s: "'Sen Çal Kapımı' dizisinin Serkan Bolat'ı kimdir? 🏗️", opts: ["🎬 Kerem Bürsin", "🎬 Hande Erçel", "🎬 Anıl İlter"], a: 0 },
-    { s: "'Fatmagül'ün Suçu Ne?' dizisinde Kerim'i kim oynadı? ⚓", opts: ["🎬 Engin Akyürek", "🎬 Fırat Çelik", "🎬 Beren Saat"], a: 0 },
-    { s: "'Karadayı' dizisinin Mahir Kara'sı kimdir? ⚖️", opts: ["🎬 Kenan İmirzalıoğlu", "🎬 Bergüzar Korel", "🎬 Çetin Tekindor"], a: 0 },
-    { s: "'Vatanım Sensin'de Cevdet karakterini kim canlandırdı? 🇹🇷", opts: ["🎬 Halit Ergenç", "🎬 Boran Kuzum", "🎬 Bergüzar Korel"], a: 0 },
-    { s: "'Leyla ile Mecnun'un Mecnun'u kimdir? 🐲", opts: ["🎬 Ali Atay", "🎬 Serkan Keskin", "🎬 Ahmet Mümtaz Taylan"], a: 0 },
-    { s: "'Asmalı Konak'ın Seymen Ağa'sı kimdir? 🍇", opts: ["🎬 Özcan Deniz", "🎬 Nurgül Yeşilçay", "🎬 Selda Alkor"], a: 0 },
-    { s: "'Yılan Hikayesi'nde Memoli'yi kim oynadı? 👮", opts: ["🎬 Mehmet Ali Alabora", "🎬 Meltem Cumbul", "🎬 Emre Kınay"], a: 0 },
-    { s: "'İstanbullu Gelin'in Faruk Boran'ı kimdir? 🎻", opts: ["🎬 Özcan Deniz", "🎬 Aslı Enver", "🎬 Salih Bademci"], a: 0 },
-    { s: "'Sadakatsiz' dizisinde Volkan karakterini kim oynadı? 💍", opts: ["🎬 Caner Cindoruk", "🎬 Cansu Dere", "🎬 Melis Sezen"], a: 0 },
-    { s: "'Kızılcık Şerbeti'nde Doğa karakterini kim canlandırıyor? ☕", opts: ["🎬 Sıla Türkoğlu", "🎬 Evrim Alasya", "🎬 Müjde Uzman"], a: 0 },
+    { s: "'Aşk-ı Memnu' dizisinde 'Behlül'ü kim canlandırdı?", c: ["Kıvanç Tatlıtuğ", "Kenan İmirzalıoğlu", "Çağatay Ulusoy"], a: "Kıvanç Tatlıtuğ" },
+    { s: "'Ezel' dizisinin başrol oyuncusu kimdir? ♠️", c: ["Tuncel Kurtiz", "Kenan İmirzalıoğlu", "Barış Falay"], a: "Kenan İmirzalıoğlu" },
+    { s: "'Muhteşem Yüzyıl'da 'Kanuni'yi kim oynadı? 👑", c: ["Halit Ergenç", "Ozan Güven", "Burak Özçivit"], a: "Halit Ergenç" },
+    { s: "'Kurtlar Vadisi'nin Polat Alemdar'ı kimdir?", c: ["Gürkan Uygun", "Oktay Kaynarca", "Necati Şaşmaz"], a: "Necati Şaşmaz" },
+    { s: "'Yargı' dizisinde Ilgaz Savcı kimdir? ⚖️", c: ["Kaan Urgancıoğlu", "Uğur Aslan", "Aras Bulut İynemli"], a: "Kaan Urgancıoğlu" },
+    { s: "'İçerde' dizisinde Sarp'ı kim oynadı? 🕵️", c: ["Çağatay Ulusoy", "Aras Bulut İynemli", "Çetin Tekindor"], a: "Çağatay Ulusoy" },
+    { s: "'Behzat Ç.' karakterini kim canlandırdı? 🚨", c: ["Erdal Beşikçioğlu", "Nejat İşler", "Fatih Artman"], a: "Erdal Beşikçioğlu" },
+    { s: "'Çukur' dizisinin Yamaç Koçovalı'sı kimdir?", c: ["Necip Memili", "Erkan Kolçak Köstendil", "Aras Bulut İynemli"], a: "Aras Bulut İynemli" },
+    { s: "'Leyla ile Mecnun'un Mecnun'u kimdir? 🐲", c: ["Ali Atay", "Serkan Keskin", "Ahmet Mümtaz Taylan"], a: "Ali Atay" },
     { s: "Bill Gates hangi yıl dünyaya geldi? 💻", c: ["1955", "1958", "1962"], a: "1955" },
     { s: "2 + 2 kaç eder?", c: ["3", "4", "5"], a: "4" }
 ];
@@ -80,6 +59,7 @@ function loadQuestion() {
     const optDiv = document.getElementById("options");
     optDiv.innerHTML = "";
     
+    // c içindeki seçenekleri buton olarak oluşturuyoruz
     q.c.forEach(opt => {
         const btn = document.createElement("button");
         btn.className = "opt-btn";
@@ -92,28 +72,16 @@ function loadQuestion() {
 function checkAnswer(selected, correct) {
     if (selected === correct) {
         currentLevel++;
-        // Doğru cevapta puanı 1.5 katına çıkar (İstersen burayı değiştirebilirsin)
         currentScore = Math.round(currentScore * 1.5);
-        
         document.getElementById("level-display").innerText = "Level: " + currentLevel;
         document.getElementById("score-display").innerText = "Puan: " + currentScore;
         loadQuestion();
     } else {
-        // YANLIŞ CEVAP DURUMU:
         alert("Yanlış cevap! Puanın yarıya düştü.");
-        
-        // Puanı yarıya indir (Math.round ile küsuratı yuvarlıyoruz)
         currentScore = Math.round(currentScore / 2);
-        
-        // Eğer puan 0'a veya altına düşerse oyunu bitir veya minimum 1 yap
         if (currentScore < 1) currentScore = 1; 
-
         document.getElementById("score-display").innerText = "Puan: " + currentScore;
-        
-        // Yanlış cevapta aynı soruda mı kalsın yoksa yeni soru mu gelsin? 
-        // Yeni soru için:
-        loadQuestion(); 
-
+        loadQuestion();
     }
 }
 
@@ -126,12 +94,7 @@ function showSaveScreen() {
 function saveScore() {
     const nick = document.getElementById("nickname").value;
     if (!nick) return alert("İsim giriniz!");
-    
-    database.ref('leaderboard/').push({
-        name: nick,
-        score: currentScore,
-        date: Date.now()
-    }).then(() => {
+    database.ref('leaderboard/').push({ name: nick, score: currentScore }).then(() => {
         showLeaderboard();
     });
 }
@@ -139,12 +102,10 @@ function saveScore() {
 function showLeaderboard() {
     document.getElementById("save-area").style.display = "none";
     document.getElementById("leader-area").style.display = "block";
-    
     database.ref('leaderboard/').orderByChild('score').limitToLast(15).once('value', (snap) => {
         const list = [];
         snap.forEach(child => { list.push(child.val()); });
         list.reverse();
-        
         const body = document.getElementById("leader-list");
         body.innerHTML = "";
         list.forEach((item, i) => {
@@ -153,5 +114,4 @@ function showLeaderboard() {
     });
 }
 
-// Oyunu Başlat
 loadQuestion();
