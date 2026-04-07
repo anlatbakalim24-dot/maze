@@ -76,14 +76,30 @@ function checkAnswer(selected, correct) {
 
 function finishGame() {
     clearInterval(timerInterval);
-    // Kalan dakikayı hesapla (Örn: 2:30 kaldıysa 2 dakika bonusu)
-    let remainingMinutes = Math.floor(timeLeft / 60);
-    if (remainingMinutes > 0) {
-        currentScore = currentScore * remainingMinutes;
+    
+    // Kalan SANİYE kadar misli puan ekle (Örn: 120 saniye kaldıysa puan x 120)
+    if (timeLeft > 0) {
+        currentScore = currentScore * timeLeft;
     }
+    
     showSaveScreen();
 }
-
+// Sayaç fonksiyonunda görseli sadece dakika:saniye olarak tuttum, 
+// ama hesaplama yukarıdaki timeLeft (toplam saniye) üzerinden yapılacak.
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        const mins = Math.floor(timeLeft / 60);
+        const secs = timeLeft % 60;
+        document.getElementById("level-display").innerText = `Level: ${currentLevel} | Süre: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert("Süre bitti!");
+            showSaveScreen();
+        }
+    }, 1000);
+}
 function showSaveScreen() {
     clearInterval(timerInterval);
     document.getElementById("game-area").style.display = "none";
