@@ -1,9 +1,8 @@
-// Firebase Yapılandırması (Sizin paylaştığınız bilgiler)
+// 1. Firebase Yapılandırması
 const firebaseConfig = {
     apiKey: "AIzaSyBal_UHvT2NvH7kly-VzcNaVTj3Tr8GUOY",
     authDomain: "maze-gage.firebaseapp.com",
-    databaseURL: "https://maze-gage-default-rtdb.europe-west1.firebasedatabase.app/
-", // Veritabanı linkiniz
+    databaseURL: "https://maze-gage-default-rtdb.europe-west1.firebasedatabase.app/",
     projectId: "maze-gage",
     storageBucket: "maze-gage.firebasestorage.app",
     messagingSenderId: "426479057060",
@@ -11,38 +10,33 @@ const firebaseConfig = {
 };
 
 // Firebase Başlatma
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 const database = firebase.database();
 
 let currentLevel = 1;
 let currentScore = 100;
 const totalLevels = 25;
 
-// ÖRNEK SORULAR (Buraları çoğaltın)
+// TÜM SORULAR AYNI FORMATTA DÜZENLENDİ (s: soru, c: seçenekler, a: doğru cevap metni)
 const sorular = [
     { s: "Dünya'nın uydusu hangisidir?", c: ["Ay", "Mars", "Güneş"], a: "Ay" },
     { s: "Türkiye'nin başkenti neresidir?", c: ["İstanbul", "Ankara", "İzmir"], a: "Ankara" },
-    { s: "Barış Manço'nun doğum yılı nedir? 🎸", opts: ["🗓️ 1943", "🗓️ 1950", "🗓️ 1938"], a: 0 },
-    { s: "Mustafa Kemal Atatürk'ün doğum yılı? 🇹🇷", opts: ["🗓️ 1880", "🗓️ 1881", "🗓️ 1885"], a: 1 },
-    { s: "Dünya Kupası'nı en fazla kazanan ülke hangisidir? 🏆", opts: ["⚽ Brezilya", "⚽ Almanya", "⚽ Arjantin"], a: 0 },
-{ s: "Ballon d'Or ödülünü en fazla kazanan futbolcu kimdir? ✨", opts: ["⚽ Cristiano Ronaldo", "⚽ Lionel Messi", "⚽ Pele"], a: 1 },
-{ s: "Şampiyonlar Ligi kupasını en fazla müzesine götüren takım hangisidir? 🏰", opts: ["⚽ AC Milan", "⚽ Liverpool", "⚽ Real Madrid"], a: 2 },
-{ s: "Dünya Kupası tarihinde en çok gol atan oyuncu kimdir? 👟", opts: ["⚽ Miroslav Klose", "⚽ Ronaldo Nazário", "⚽ Just Fontaine"], a: 0 },
-{ s: "Hangi ülke 2022 FIFA Dünya Kupası'nı kazanmıştır? 🇦🇷", opts: ["⚽ Fransa", "⚽ Arjantin", "⚽ Hırvatistan"], a: 1 },
-{ s: "Premier Lig tarihinde en çok gol atan oyuncu kimdir? 🏴󠁧󠁢󠁥󠁮󠁧󠁿", opts: ["⚽ Wayne Rooney", "⚽ Thierry Henry", "⚽ Alan Shearer"], a: 2 },
-{ s: "Süper Lig'de 'namağlup şampiyon' unvanına sahip tek takım hangisidir? 🦁", opts: ["⚽ Beşiktaş", "⚽ Galatasaray", "⚽ Fenerbahçe"], a: 0 },
-{ s: "Bir takvim yılında (91 gol) en çok gol atan futbolcu kimdir? 📅", opts: ["⚽ Gerd Müller", "⚽ Lionel Messi", "⚽ Robert Lewandowski"], a: 1 },
-{ s: "Avrupa Şampiyonası (EURO) kupasını en çok kazanan ülkelerden biri hangisidir? 🇪🇺", opts: ["⚽ İspanya", "⚽ İtalya", "⚽ Portekiz"], a: 0 },
-{ s: "UEFA Kupası'nı kazanan ilk ve tek Türk takımı hangisidir? 🇹🇷", opts: ["⚽ Fenerbahçe", "⚽ Beşiktaş", "⚽ Galatasaray"], a: 2 },
-{ s: "Cristiano Ronaldo hangi yıl doğmuştur? ⚽", opts: ["🗓️ 1985", "🗓️ 1987", "🗓️ 1990"], a: 0 },
-    { s: "Elon Musk'ın doğum yılı hangisidir? 🚀", opts: ["🗓️ 1971", "🗓️ 1965", "🗓️ 1980"], a: 0 },
-    { s: "Albert Einstein hangi yıl doğdu? 🧠", opts: ["🗓️ 1879", "🗓️ 1900", "🗓️ 1855"], a: 0 },
-    { s: "Kemal Sunal'ın doğum yılı nedir? 🎭", opts: ["🗓️ 1944", "🗓️ 1950", "🗓️ 1940"], a: 0 },
-    { s: "Lionel Messi'nin doğum yılı? ⚽", opts: ["🗓️ 1987", "🗓️ 1989", "🗓️ 1985"], a: 0 },
-    { s: "Michael Jackson hangi yıl doğdu? 🕺", opts: ["🗓️ 1958", "🗓️ 1960", "🗓️ 1955"], a: 0 },
-    { s: "Steve Jobs'un doğum yılı hangisidir? 🍎", opts: ["🗓️ 1955", "🗓️ 1950", "🗓️ 1960"], a: 0 },
-    { s: "Bill Gates hangi yıl dünyaya geldi? 💻", opts: ["🗓️ 1955", "🗓️ 1958", "🗓️ 1962"], a: 0 },
-
+    { s: "Barış Manço'nun doğum yılı nedir? 🎸", c: ["1943", "1950", "1938"], a: "1943" },
+    { s: "Mustafa Kemal Atatürk'ün doğum yılı? 🇹🇷", c: ["1880", "1881", "1885"], a: "1881" },
+    { s: "Dünya Kupası'nı en fazla kazanan ülke? 🏆", c: ["Brezilya", "Almanya", "Arjantin"], a: "Brezilya" },
+    { s: "Ballon d'Or ödülünü en fazla kazanan futbolcu? ✨", c: ["Ronaldo", "Messi", "Pele"], a: "Messi" },
+    { s: "Şampiyonlar Ligi'ni en çok kazanan takım? 🏰", c: ["Milan", "Liverpool", "Real Madrid"], a: "Real Madrid" },
+    { s: "Hangi ülke 2022 Dünya Kupası'nı kazanmıştır? 🇦🇷", c: ["Fransa", "Arjantin", "Hırvatistan"], a: "Arjantin" },
+    { s: "UEFA Kupası'nı kazanan tek Türk takımı? 🇹🇷", c: ["Fenerbahçe", "Beşiktaş", "Galatasaray"], a: "Galatasaray" },
+    { s: "Cristiano Ronaldo doğum yılı? ⚽", c: ["1985", "1987", "1990"], a: "1985" },
+    { s: "Elon Musk'ın doğum yılı hangisidir? 🚀", c: ["1971", "1965", "1980"], a: "1971" },
+    { s: "Albert Einstein hangi yıl doğdu? 🧠", c: ["1879", "1900", "1855"], a: "1879" },
+    { s: "Kemal Sunal'ın doğum yılı nedir? 🎭", c: ["1944", "1950", "1940"], a: "1944" },
+    { s: "Michael Jackson hangi yıl doğdu? 🕺", c: ["1958", "1960", "1955"], a: "1958" },
+    { s: "Steve Jobs'un doğum yılı hangisidir? 🍎", c: ["1955", "1950", "1960"], a: "1955" },
+    { s: "Bill Gates hangi yıl dünyaya geldi? 💻", c: ["1955", "1958", "1962"], a: "1955" },
     { s: "2 + 2 kaç eder?", c: ["3", "4", "5"], a: "4" }
 ];
 
@@ -55,6 +49,7 @@ function loadQuestion() {
     document.getElementById("question-text").innerText = q.s;
     const optDiv = document.getElementById("options");
     optDiv.innerHTML = "";
+    
     q.c.forEach(opt => {
         const btn = document.createElement("button");
         btn.className = "opt-btn";
@@ -93,7 +88,8 @@ function saveScore() {
     
     database.ref('leaderboard/').push({
         name: nick,
-        score: currentScore
+        score: currentScore,
+        date: Date.now()
     }).then(() => {
         showLeaderboard();
     });
