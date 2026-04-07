@@ -22,6 +22,9 @@ const totalLevels = 25;
 // TÜM SORULAR AYNI FORMATTA DÜZENLENDİ (s: soru, c: seçenekler, a: doğru cevap metni)
 const sorular = [
     { s: "Dünya'nın uydusu hangisidir?", c: ["Ay", "Mars", "Güneş"], a: "Ay" },
+    { s: "Bitcoin arzı kaç adet ile sınırlandırılmıştır? ₿ ", c: ["18 Milyon", "21 Milyon", "31 Milyon"], a: "21 Milyon" },
+    { s: "2021 yılında Bitcoin'i resmi para birimi (legal tender) olarak kabul eden ilk ülke?", c: ["ElSalvadory", "Arjantin", "Panama"], a: "ElSalvador" },
+    { s: "Dogecoin hangi yıl, bir "şaka" (meme) olarak piyasaya sürülmüştür?  ", c: ["2017", "2013", "2015"], a: "2013" },
     { s: "Türkiye'nin başkenti neresidir?", c: ["İstanbul", "Ankara", "İzmir"], a: "Ankara" },
     { s: "Barış Manço'nun doğum yılı nedir? 🎸", c: ["1943", "1950", "1938"], a: "1943" },
     { s: "Mustafa Kemal Atatürk'ün doğum yılı? 🇹🇷", c: ["1880", "1881", "1885"], a: "1881" },
