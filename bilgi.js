@@ -48,6 +48,7 @@ const sorular = [
     { s: "'Behzat Ç.' karakterini kim canlandırdı? 🚨", c: ["Erdal Beşikçioğlu", "Nejat İşler", "Fatih Artman"], a: "Erdal Beşikçioğlu" },
     { s: "'Çukur' dizisinin Yamaç Koçovalı'sı kimdir?", c: ["Necip Memili", "Erkan Kolçak Köstendil", "Aras Bulut İynemli"], a: "Aras Bulut İynemli" },
     { s: "'Leyla ile Mecnun'un Mecnun'u kimdir? 🐲", c: ["Ali Atay", "Serkan Keskin", "Ahmet Mümtaz Taylan"], a: "Ali Atay" },
+    { s: "Lumiere Kardeşler tarihteki ilk halka açık film gösterisini kaç yılda yaptı? 💻", c: ["1915", "1895", "1912"], a: "1895" },
     { s: "Bill Gates hangi yıl dünyaya geldi? 💻", c: ["1955", "1958", "1962"], a: "1955" },
     { s: "Bir zürafanın boynunda kaç adet kemik (omur) bulunur? 🦒", c: ["7", "14", "21"], a: "7" },
     { s: "Arı kuşu (Hummingbird) bir saniyede yaklaşık kaç kez kanat çırpar? 💻", c: ["20-30", "50-80", "110-130"], a: "50-80" },
