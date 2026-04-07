@@ -50,7 +50,7 @@ const sorular = [
     { s: "'Leyla ile Mecnun'un Mecnun'u kimdir? 🐲", c: ["Ali Atay", "Serkan Keskin", "Ahmet Mümtaz Taylan"], a: "Ali Atay" },
     { s: "Bill Gates hangi yıl dünyaya geldi? 💻", c: ["1955", "1958", "1962"], a: "1955" },
     { s: "Üç adet kalbi olan hayvan? 💻", c: ["Ahtapot", "Karides", "Salyangoz"], a: "Ahtapot" },
-    { s: "Machu Picchu hangi ülkededir? 🇵🇪", opts: ["🇧🇴 Bolivya", "🇵🇪 Peru", "🇨🇴 Kolombiya"], a: Peru },
+    { s: "Machu Picchu hangi ülkededir? 🇵🇪", opts: ["🇧🇴 Bolivya", "🇵🇪 Peru", "🇨🇴 Kolombiya"], a: "🇵🇪 Peru" },
     { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "4" }
 ];
 
