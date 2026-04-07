@@ -62,17 +62,28 @@ function loadQuestion() {
 function checkAnswer(selected, correct) {
     if (selected === correct) {
         currentLevel++;
+        // Doğru cevapta puanı 1.5 katına çıkar (İstersen burayı değiştirebilirsin)
         currentScore = Math.round(currentScore * 1.5);
+        
         document.getElementById("level-display").innerText = "Level: " + currentLevel;
         document.getElementById("score-display").innerText = "Puan: " + currentScore;
         loadQuestion();
     } else {
-        alert("Yanlış cevap! 1. Levele dönüyorsun.");
-        currentLevel = 1;
-        currentScore = 100;
-        document.getElementById("level-display").innerText = "Level: 1";
-        document.getElementById("score-display").innerText = "Puan: 100";
-        loadQuestion();
+        // YANLIŞ CEVAP DURUMU:
+        alert("Yanlış cevap! Puanın yarıya düştü.");
+        
+        // Puanı yarıya indir (Math.round ile küsuratı yuvarlıyoruz)
+        currentScore = Math.round(currentScore / 2);
+        
+        // Eğer puan 0'a veya altına düşerse oyunu bitir veya minimum 1 yap
+        if (currentScore < 1) currentScore = 1; 
+
+        document.getElementById("score-display").innerText = "Puan: " + currentScore;
+        
+        // Yanlış cevapta aynı soruda mı kalsın yoksa yeni soru mu gelsin? 
+        // Yeni soru için:
+        loadQuestion(); 
+
     }
 }
 
