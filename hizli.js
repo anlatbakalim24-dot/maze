@@ -1,7 +1,7 @@
 // 1. Firebase Yapılandırması (databaseURL buradan silindi, hata vermemesi için)
 const firebaseConfig = {
     apiKey: "AIzaSyBal_UHvT2NvH7kly-VzcNaVTj3Tr8GUOY",
-    authDomain: "://firebaseapp.com",
+    authDomain: "maze-gage.firebaseapp.com",
     projectId: "maze-gage",
     storageBucket: "maze-gage.firebasestorage.app",
     messagingSenderId: "426479057060",
