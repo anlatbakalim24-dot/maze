@@ -15,9 +15,8 @@ if (!firebase.apps.length) {
 }
 
 // HATANIN KESİN ÇÖZÜMÜ: appInstance kullanarak adresi zorla tanıtıyoruz
-const appInstance = firebase.app();
-const database = appInstance.database("https://firebasedatabase.app");
-
+const app = firebase.initializeApp(firebaseConfig);
+const database = firebase.database(app, dbUrl);
 
 let currentLevel = 1;
 let currentScore = 2; // Başlangıç puanı 2
