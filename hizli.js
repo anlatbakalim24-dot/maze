@@ -10,14 +10,12 @@ const firebaseConfig = {
 };
 
 // Firebase Başlatma
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
+// Firebase Başlatma (Sadece bir kez çağrılmalı)
+const app = firebase.apps.length ? firebase.app() : firebase.initializeApp(firebaseConfig);
+const dbUrl = "https://maze-gage-default-rtdb.europe-west1.firebasedatabase.app/";
 
-// HATANIN KESİN ÇÖZÜMÜ: appInstance kullanarak adresi zorla tanıtıyoruz
-const app = firebase.initializeApp(firebaseConfig);
-databaseURL: "https://maze-gage-default-rtdb.europe-west1.firebasedatabase.app/",
-const database = firebase.database(app, dbUrl);
+// HATANIN KESİN ÇÖZÜMÜ: Eski kütüphane için doğru yazım budir
+const database = app.database(dbUrl);
 
 let currentLevel = 1;
 let currentScore = 2; // Başlangıç puanı 2
