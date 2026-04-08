@@ -26,7 +26,7 @@ const sorular = [
     { s: "Antik Roma’da damadın gelini eşikten kucağında taşıyarak geçirmesinin sebebi neydi?", c: ["Evdeki kötü ruhları korkutmak", "Gelinin yorulmasını engellemek", "Gelinin ayağının takılmasının uğursuzluk sayılması"], a: "Gelinin ayağının takılmasının uğursuzluk sayılması" },
     { s: "Bitcoin arzı kaç adet ile sınırlandırılmıştır? ₿ ", c: ["18 Milyon", "21 Milyon", "31 Milyon"], a: "21 Milyon" },
     { s: "2021 yılında Bitcoin'i resmi para birimi (legal tender) olarak kabul eden ilk ülke?", c: ["ElSalvadory", "Arjantin", "Panama"], a: "ElSalvador" },
-    { s: "Dogecoin hangi yıl, bir "şaka" (meme) olarak piyasaya sürülmüştür?  ", c: ["2017", "2013", "2015"], a: "2013" },
+    { s: "Dogecoin hangi yıl, bir 'şaka' (meme) olarak piyasaya sürülmüştür?  ", c: ["2017", "2013", "2015"], a: "2013" },
     { s: "Bir altcoinin kendi blokzinciri yoksa ona ne ad verilir?", c: ["Fork", "Mainnet", "Token"], a: "Token" },
     { s: "2025 yılında G20 ülkeleri arasında %7,6 ile en hızlı büyüme oranına ulaşan ülke?", c: ["Türkiye", "Hindistan", "Çin"], a: "Hindistan" },
     { s: "Türkiye'nin başkenti neresidir?", c: ["İstanbul", "Ankara", "İzmir"], a: "Ankara" },
@@ -61,7 +61,7 @@ const sorular = [
     { s: "Arı kuşu (Hummingbird) bir saniyede yaklaşık kaç kez kanat çırpar? 💻", c: ["20-30", "50-80", "110-130"], a: "50-80" },
     { s: "Bir aslanın kükremesi yaklaşık kaç kilometre mesafeden duyulabilir? 🦁", c: ["4", "6", "8"], a: "8" },
     { s: "Üç adet kalbi olan hayvan? 💻", c: ["Ahtapot", "Karides", "Salyangoz"], a: "Ahtapot" },
-    { s: "Machu Picchu hangi ülkededir? 🇵🇪", opts: ["🇧🇴 Bolivya", "🇵🇪 Peru", "🇨🇴 Kolombiya"], a: "🇵🇪 Peru" },
+    { s: "Machu Picchu hangi ülkededir? 🇵🇪", c: ["🇧🇴 Bolivya", "🇵🇪 Peru", "🇨🇴 Kolombiya"], a: "🇵🇪 Peru" },
     { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "8" }
 ];
 
