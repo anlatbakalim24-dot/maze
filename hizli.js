@@ -15,7 +15,7 @@ const database = firebase.database();
 let currentLevel = 1;
 let currentScore = 10;
 const totalLevels = 25;
-let timeLeft = 300; // 5 dakika (saniye cinsinden)
+let timeLeft = 180; // 3 dakika (saniye cinsinden)
 let timerInterval;
 
 // Sorular (Örnek olarak bıraktım, kendi listenizi buraya ekleyin)
