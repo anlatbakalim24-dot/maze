@@ -13,7 +13,7 @@ if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
 const database = firebase.database();
 
 let currentLevel = 1;
-let currentScore = 10;
+let currentScore = 2;
 const totalLevels = 25;
 let timeLeft = 180; // 3 dakika (saniye cinsinden)
 let timerInterval;
