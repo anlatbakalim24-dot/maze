@@ -25,7 +25,7 @@ const sorular = [
     { s: "1700 lerde bir gemide hangi meyva'nın taşınması felaket sebebi sayılırdı.", c: ["Ayva", "Hindistan Cevizi", "Muz"], a: "Muz" },
     { s: "Antik Roma’da damadın gelini eşikten kucağında taşıyarak geçirmesinin sebebi neydi?", c: ["Evdeki kötü ruhları korkutmak", "Gelinin yorulmasını engellemek", "Gelinin ayağının takılmasının uğursuzluk sayılması"], a: "Gelinin ayağının takılmasının uğursuzluk sayılması" },
     { s: "Bitcoin arzı kaç adet ile sınırlandırılmıştır? ₿ ", c: ["18 Milyon", "21 Milyon", "31 Milyon"], a: "21 Milyon" },
-    { s: "2021 yılında Bitcoin'i resmi para birimi (legal tender) olarak kabul eden ilk ülke?", c: ["ElSalvadory", "Arjantin", "Panama"], a: "ElSalvador" },
+    { s: "2021 yılında Bitcoin'i resmi para birimi (legal tender) olarak kabul eden ilk ülke?", c: ["ElSalvador", "Arjantin", "Panama"], a: "ElSalvador" },
     { s: "Dogecoin hangi yıl, bir 'şaka' (meme) olarak piyasaya sürülmüştür?  ", c: ["2017", "2013", "2015"], a: "2013" },
     { s: "Bir altcoinin kendi blokzinciri yoksa ona ne ad verilir?", c: ["Fork", "Mainnet", "Token"], a: "Token" },
     { s: "2025 yılında G20 ülkeleri arasında %7,6 ile en hızlı büyüme oranına ulaşan ülke?", c: ["Türkiye", "Hindistan", "Çin"], a: "Hindistan" },
