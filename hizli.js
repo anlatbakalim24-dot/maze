@@ -74,7 +74,11 @@ function startTimer() {
         
         const levelElem = document.getElementById("level-display");
         if(levelElem) {
-            levelElem.innerText = `Level: ${currentLevel} | Süre: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            levelElem.innerText = `Level: ${currentLevel};
+            // Süreyi güncelle (timer-display'e gönderiyoruz)
+        const timerElem = document.getElementById("timer-display");
+        if(timerElem) {
+            timerElem.innerText = `Süre: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
         }
         
         if (timeLeft <= 0) {
