@@ -65,6 +65,12 @@ const sorular = [
     { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "8" }
 ];
 
+// OYUNU BAŞLATAN ANA FONKSİYON (Sayfa yüklenince çalışır)
+window.onload = function() {
+    startTimer();
+    loadQuestion();
+};
+
 // Sayacı Başlat
 function startTimer() {
     timerInterval = setInterval(() => {
