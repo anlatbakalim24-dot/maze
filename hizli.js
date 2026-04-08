@@ -65,14 +65,17 @@ const sorular = [
     { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "8" }
 ];
 
-// Sayacı Başlat
+// 1. Önce fonksiyonları tanımlıyoruz
 function startTimer() {
     timerInterval = setInterval(() => {
         timeLeft--;
         const mins = Math.floor(timeLeft / 60);
         const secs = timeLeft % 60;
-        // HTML'de id="level-display" olan yerin yanına süreyi yazdırır
-        document.getElementById("level-display").innerText = `Level: ${currentLevel} | Süre: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        
+        const levelElem = document.getElementById("level-display");
+        if(levelElem) {
+            levelElem.innerText = `Level: ${currentLevel} | Süre: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
         
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
@@ -83,44 +86,50 @@ function startTimer() {
 }
 
 function loadQuestion() {
+    // 25. seviye geçildiğinde
     if (currentLevel > totalLevels) {
         finishGame();
         return;
     }
-    const q = sorular[Math.floor(Math.random() * sorular.length)];
-    document.getElementById("question-text").innerText = q.s;
-    const optDiv = document.getElementById("options");
-    optDiv.innerHTML = "";
     
-    q.c.forEach(opt => {
-        const btn = document.createElement("button");
-        btn.className = "opt-btn";
-        btn.innerText = opt;
-        btn.onclick = () => checkAnswer(opt, q.a);
-        optDiv.appendChild(btn);
-    });
+    const q = sorular[Math.floor(Math.random() * sorular.length)];
+    const qText = document.getElementById("question-text");
+    const optDiv = document.getElementById("options");
+    const scoreDiv = document.getElementById("score-display");
+
+    if(qText && optDiv) {
+        qText.innerText = q.s;
+        optDiv.innerHTML = "";
+        if(scoreDiv) scoreDiv.innerText = "Puan: " + currentScore;
+
+        q.c.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.className = "opt-btn";
+            btn.innerText = opt;
+            btn.onclick = () => checkAnswer(opt, q.a);
+            optDiv.appendChild(btn);
+        });
+    }
 }
 
 function checkAnswer(selected, correct) {
     if (selected === correct) {
         currentLevel++;
         currentScore = Math.round(currentScore * 1.5);
-        document.getElementById("score-display").innerText = "Puan: " + currentScore;
         loadQuestion();
     } else {
+        alert("Yanlış cevap! Puanın yarıya düştü.");
         currentScore = Math.round(currentScore / 2);
         if (currentScore < 1) currentScore = 1; 
-        document.getElementById("score-display").innerText = "Puan: " + currentScore;
         loadQuestion();
     }
 }
 
 function finishGame() {
     clearInterval(timerInterval);
-    // Kalan dakikayı hesapla (Örn: 2:30 kaldıysa 2 dakika bonusu)
-    let remainingMinutes = Math.floor(timeLeft / 60);
-    if (remainingMinutes > 0) {
-        currentScore = currentScore * remainingMinutes;
+    // İSTEDİĞİN GÜNCELLEME: Kalan SANİYE çarpanı
+    if (timeLeft > 0) {
+        currentScore = currentScore * timeLeft;
     }
     showSaveScreen();
 }
@@ -131,7 +140,6 @@ function showSaveScreen() {
     document.getElementById("save-area").style.display = "block";
     document.getElementById("final-score").innerText = "Oyun Bitti! Toplam Puan: " + currentScore;
 }
-
 function saveScore() {
     const nick = document.getElementById("nickname").value;
     if (!nick) return alert("İsim giriniz!");
