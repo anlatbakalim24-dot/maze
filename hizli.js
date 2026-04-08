@@ -71,11 +71,14 @@ function startTimer() {
         const secs = timeLeft % 60;
         
         const levelElem = document.getElementById("level-display");
-        if(levelElem) levelElem.innerText = `Level: ${currentLevel}`;
+        if(levelElem) {
+            levelElem.innerText = "Level: " + currentLevel;
+        }
         
         const timerElem = document.getElementById("timer-display");
         if(timerElem) {
-            timerElem.innerText = `Süre: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            // Görünmez karakterler temizlendi
+            timerElem.innerText = "Süre: " + mins + ":" + (secs < 10 ? "0" : "") + secs;
         }
         
         if (timeLeft <= 0) {
@@ -85,6 +88,7 @@ function startTimer() {
         }
     }, 1000);
 }
+
 
 function loadQuestion() {
     if (currentLevel > totalLevels) {
