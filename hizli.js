@@ -2,6 +2,7 @@
 const firebaseConfig = {
     apiKey: "AIzaSyBal_UHvT2NvH7kly-VzcNaVTj3Tr8GUOY",
     authDomain: "maze-gage.firebaseapp.com",
+    databaseURL: "https://maze-gage-default-rtdb.europe-west1.firebasedatabase.app/",
     projectId: "maze-gage",
     storageBucket: "maze-gage.firebasestorage.app",
     messagingSenderId: "426479057060",
