@@ -75,6 +75,7 @@ function startTimer() {
         const levelElem = document.getElementById("level-display");
         if(levelElem) {
             levelElem.innerText = `Level: ${currentLevel};
+            }
             // Süreyi güncelle (timer-display'e gönderiyoruz)
         const timerElem = document.getElementById("timer-display");
         if(timerElem) {
