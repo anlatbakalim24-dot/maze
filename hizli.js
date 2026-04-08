@@ -65,36 +65,6 @@ const sorular = [
     { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "8" }
 ];
 
-// 1. Firebase Yapılandırması
-const firebaseConfig = {
-    apiKey: "AIzaSyBal_UHvT2NvH7kly-VzcNaVTj3Tr8GUOY",
-    authDomain: "://firebaseapp.com",
-    databaseURL: "https://firebasedatabase.app",
-    projectId: "maze-gage",
-    storageBucket: "maze-gage.firebasestorage.app",
-    messagingSenderId: "426479057060",
-    appId: "1:426479057060:web:3cef87d31189f6d05b8e31"
-};
-
-// Firebase Başlatma (Hata önleyici kontrol ile)
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
-const database = firebase.database();
-
-// Değişkenler
-let currentLevel = 1;
-let currentScore = 10;
-const totalLevels = 25;
-let timeLeft = 300; 
-let timerInterval;
-
-// Sorular (Burayı kendi sorularınızla doldurun)
-const sorular = [
-    { s: "Dünya'nın uydusu hangisidir?", c: ["Ay", "Mars", "Güneş"], a: "Ay" },
-    { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "8" }
-];
-
 // Sayfa yüklendiğinde tetiklenecek
 window.addEventListener('load', function() {
     console.log("Oyun başlatılıyor...");
