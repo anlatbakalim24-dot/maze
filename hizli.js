@@ -10,7 +10,7 @@ const firebaseConfig = {
 };
 
 if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
-const database = firebase.database();
+const database = firebase.database("https://firebasedatabase.app");
 
 let currentLevel = 1;
 let currentScore = 2; // Başlangıç puanı 2
