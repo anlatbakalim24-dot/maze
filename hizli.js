@@ -1,8 +1,8 @@
 // 1. Firebase Yapılandırması
 const firebaseConfig = {
     apiKey: "AIzaSyBal_UHvT2NvH7kly-VzcNaVTj3Tr8GUOY",
-    authDomain: "maze-gage.firebaseapp.com",
-    databaseURL: "https://maze-gage-default-rtdb.europe-west1.firebasedatabase.app/",
+    authDomain: "://firebaseapp.com",
+    databaseURL: "https://firebasedatabase.app",
     projectId: "maze-gage",
     storageBucket: "maze-gage.firebasestorage.app",
     messagingSenderId: "426479057060",
@@ -13,12 +13,11 @@ if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
 const database = firebase.database();
 
 let currentLevel = 1;
-let currentScore = 2;
+let currentScore = 2; // Başlangıç puanı 2
 const totalLevels = 25;
-let timeLeft = 180; // 3 dakika (saniye cinsinden)
+let timeLeft = 180; // 3 dakika
 let timerInterval;
 
-// Sorular (Örnek olarak bıraktım, kendi listenizi buraya ekleyin)
 const sorular = [
     { s: "Dünya'nın uydusu hangisidir?", c: ["Ay", "Mars", "Güneş"], a: "Ay" },
     { s: "Tiyatrocular arasında hangi Shakespeare oyununun adını sahnede anmak büyük uğursuzluktur?", c: ["Macbeth", "Hamlet", "Romeo ve Juliet"], a: "Macbeth" },
@@ -26,7 +25,7 @@ const sorular = [
     { s: "Antik Roma’da damadın gelini eşikten kucağında taşıyarak geçirmesinin sebebi neydi?", c: ["Evdeki kötü ruhları korkutmak", "Gelinin yorulmasını engellemek", "Gelinin ayağının takılmasının uğursuzluk sayılması"], a: "Gelinin ayağının takılmasının uğursuzluk sayılması" },
     { s: "Bitcoin arzı kaç adet ile sınırlandırılmıştır? ₿ ", c: ["18 Milyon", "21 Milyon", "31 Milyon"], a: "21 Milyon" },
     { s: "2021 yılında Bitcoin'i resmi para birimi (legal tender) olarak kabul eden ilk ülke?", c: ["ElSalvador", "Arjantin", "Panama"], a: "ElSalvador" },
-    { s: "Dogecoin hangi yıl, bir 'şaka' (meme) olarak piyasaya sürülmüştür?  ", c: ["2017", "2013", "2015"], a: "2013" },
+    { s: "Dogecoin hangi yıl, bir 'şaka' (meme) olarak piyasaya sürülmüştür?", c: ["2017", "2013", "2015"], a: "2013" },
     { s: "Bir altcoinin kendi blokzinciri yoksa ona ne ad verilir?", c: ["Fork", "Mainnet", "Token"], a: "Token" },
     { s: "2025 yılında G20 ülkeleri arasında %7,6 ile en hızlı büyüme oranına ulaşan ülke?", c: ["Türkiye", "Hindistan", "Çin"], a: "Hindistan" },
     { s: "Türkiye'nin başkenti neresidir?", c: ["İstanbul", "Ankara", "İzmir"], a: "Ankara" },
@@ -55,17 +54,16 @@ const sorular = [
     { s: "'Behzat Ç.' karakterini kim canlandırdı? 🚨", c: ["Erdal Beşikçioğlu", "Nejat İşler", "Fatih Artman"], a: "Erdal Beşikçioğlu" },
     { s: "'Çukur' dizisinin Yamaç Koçovalı'sı kimdir?", c: ["Necip Memili", "Erkan Kolçak Köstendil", "Aras Bulut İynemli"], a: "Aras Bulut İynemli" },
     { s: "'Leyla ile Mecnun'un Mecnun'u kimdir? 🐲", c: ["Ali Atay", "Serkan Keskin", "Ahmet Mümtaz Taylan"], a: "Ali Atay" },
-    { s: "Lumiere Kardeşler tarihteki ilk halka açık film gösterisini kaç yılda yaptı? 💻", c: ["1915", "1895", "1912"], a: "1895" },
-    { s: "Bill Gates hangi yıl dünyaya geldi? 💻", c: ["1955", "1958", "1962"], a: "1955" },
-    { s: "Bir zürafanın boynunda kaç adet kemik (omur) bulunur? 🦒", c: ["7", "14", "21"], a: "7" },
-    { s: "Arı kuşu (Hummingbird) bir saniyede yaklaşık kaç kez kanat çırpar? 💻", c: ["20-30", "50-80", "110-130"], a: "50-80" },
-    { s: "Bir aslanın kükremesi yaklaşık kaç kilometre mesafeden duyulabilir? 🦁", c: ["4", "6", "8"], a: "8" },
-    { s: "Üç adet kalbi olan hayvan? 💻", c: ["Ahtapot", "Karides", "Salyangoz"], a: "Ahtapot" },
-    { s: "Machu Picchu hangi ülkededir? ", c: ["🇧🇴 Bolivya", "🇵🇪 Peru", "🇨🇴 Kolombiya"], a: "🇵🇪 Peru" },
+    { s: "Lumiere Kardeşler tarihteki ilk halka açık film gösterisini kaç yılda yaptı?", c: ["1915", "1895", "1912"], a: "1895" },
+    { s: "Bill Gates hangi yıl dünyaya geldi?", c: ["1955", "1958", "1962"], a: "1955" },
+    { s: "Bir zürafanın boynunda kaç adet kemik (omur) bulunur?", c: ["7", "14", "21"], a: "7" },
+    { s: "Arı kuşu bir saniyede yaklaşık kaç kez kanat çırpar?", c: ["20-30", "50-80", "110-130"], a: "50-80" },
+    { s: "Bir aslanın kükremesi yaklaşık kaç kilometre mesafeden duyulabilir?", c: ["4", "6", "8"], a: "8" },
+    { s: "Üç adet kalbi olan hayvan?", c: ["Ahtapot", "Karides", "Salyangoz"], a: "Ahtapot" },
+    { s: "Machu Picchu hangi ülkededir?", c: ["🇧🇴 Bolivya", "🇵🇪 Peru", "🇨🇴 Kolombiya"], a: "🇵🇪 Peru" },
     { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "8" }
 ];
 
-// 1. Önce fonksiyonları tanımlıyoruz
 function startTimer() {
     timerInterval = setInterval(() => {
         timeLeft--;
@@ -73,10 +71,8 @@ function startTimer() {
         const secs = timeLeft % 60;
         
         const levelElem = document.getElementById("level-display");
-        if(levelElem) {
-            levelElem.innerText = `Level: ${currentLevel}`;
-            }
-            // Süreyi güncelle (timer-display'e gönderiyoruz)
+        if(levelElem) levelElem.innerText = `Level: ${currentLevel}`;
+        
         const timerElem = document.getElementById("timer-display");
         if(timerElem) {
             timerElem.innerText = `Süre: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
@@ -91,30 +87,23 @@ function startTimer() {
 }
 
 function loadQuestion() {
-    // 25. seviye geçildiğinde
     if (currentLevel > totalLevels) {
         finishGame();
         return;
     }
-    
     const q = sorular[Math.floor(Math.random() * sorular.length)];
-    const qText = document.getElementById("question-text");
+    document.getElementById("question-text").innerText = q.s;
     const optDiv = document.getElementById("options");
-    const scoreDiv = document.getElementById("score-display");
-
-    if(qText && optDiv) {
-        qText.innerText = q.s;
-        optDiv.innerHTML = "";
-        if(scoreDiv) scoreDiv.innerText = "Puan: " + currentScore;
-
-        q.c.forEach(opt => {
-            const btn = document.createElement("button");
-            btn.className = "opt-btn";
-            btn.innerText = opt;
-            btn.onclick = () => checkAnswer(opt, q.a);
-            optDiv.appendChild(btn);
-        });
-    }
+    optDiv.innerHTML = "";
+    document.getElementById("score-display").innerText = "Puan: " + currentScore;
+    
+    q.c.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.className = "opt-btn";
+        btn.innerText = opt;
+        btn.onclick = () => checkAnswer(opt, q.a);
+        optDiv.appendChild(btn);
+    });
 }
 
 function checkAnswer(selected, correct) {
@@ -132,7 +121,6 @@ function checkAnswer(selected, correct) {
 
 function finishGame() {
     clearInterval(timerInterval);
-    // İSTEDİĞİN GÜNCELLEME: Kalan SANİYE çarpanı
     if (timeLeft > 0) {
         currentScore = currentScore * timeLeft;
     }
@@ -140,11 +128,11 @@ function finishGame() {
 }
 
 function showSaveScreen() {
-    clearInterval(timerInterval);
     document.getElementById("game-area").style.display = "none";
     document.getElementById("save-area").style.display = "block";
-    document.getElementById("final-score").innerText = "Oyun Bitti! Toplam Puan: " + currentScore;
+    document.getElementById("final-score").innerText = "Toplam Puan: " + currentScore;
 }
+
 function saveScore() {
     const nick = document.getElementById("nickname").value;
     if (!nick) return alert("İsim giriniz!");
@@ -167,8 +155,9 @@ function showLeaderboard() {
         });
     });
 }
+
+// OYUNU BAŞLAT
 window.onload = function() {
-// Oyunu başlat
-startTimer();
-loadQuestion();
+    startTimer();
+    loadQuestion();
 };
