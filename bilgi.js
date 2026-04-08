@@ -1,4 +1,3 @@
-// 1. Firebase Yapılandırması
 const firebaseConfig = {
     apiKey: "AIzaSyBal_UHvT2NvH7kly-VzcNaVTj3Tr8GUOY",
     authDomain: "maze-gage.firebaseapp.com",
@@ -10,10 +9,10 @@ const firebaseConfig = {
 };
 
 // Firebase Başlatma
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
-const database = firebase.database();
+// Firebase Başlatma (Sadece bir kez çağrılmalı)
+const app = firebase.apps.length ? firebase.app() : firebase.initializeApp(firebaseConfig);
+const dbUrl = "https://maze-gage-default-rtdb.europe-west1.firebasedatabase.app/";
+const database = app.database(dbUrl);
 
 let currentLevel = 1;
 let currentScore = 10;
