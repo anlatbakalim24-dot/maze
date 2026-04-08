@@ -167,7 +167,8 @@ function showLeaderboard() {
         });
     });
 }
-
+window.onload = function() {
 // Oyunu başlat
 startTimer();
 loadQuestion();
+};
