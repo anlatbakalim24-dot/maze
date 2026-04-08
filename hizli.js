@@ -16,6 +16,7 @@ if (!firebase.apps.length) {
 
 // HATANIN KESİN ÇÖZÜMÜ: appInstance kullanarak adresi zorla tanıtıyoruz
 const app = firebase.initializeApp(firebaseConfig);
+databaseURL: "https://maze-gage-default-rtdb.europe-west1.firebasedatabase.app/",
 const database = firebase.database(app, dbUrl);
 
 let currentLevel = 1;
