@@ -23,7 +23,7 @@ const sorular = [
     { s: "Tiyatrocular arasında hangi Shakespeare oyununun adını sahnede anmak büyük uğursuzluktur?", c: ["Macbeth", "Hamlet", "Romeo ve Juliet"], a: "Macbeth" },
     { s: "1700 lerde bir gemide hangi meyva'nın taşınması felaket sebebi sayılırdı.", c: ["Ayva", "Hindistan Cevizi", "Muz"], a: "Muz" },
     { s: "Antik Roma’da damadın gelini eşikten kucağında taşıyarak geçirmesinin sebebi neydi?", c: ["Evdeki kötü ruhları korkutmak", "Gelinin yorulmasını engellemek", "Gelinin ayağının takılmasının uğursuzluk sayılması"], a: "Gelinin ayağının takılmasının uğursuzluk sayılması" },
-    { s: "Bitcoin arzı kaç adet ile sınırlandırılmıştır? ₿ ", c: ["18 Milyon", "21 Milyon", "31 Milyon"], a: "21 Milyon" },
+    { s: "Bitcoin arzı kaç adet ile sınırlandırılmıştır? ₿ ", c: ["18Milyon", "21Milyon", "31Milyon"], a: "21Milyon" },
     { s: "2021 yılında Bitcoin'i resmi para birimi (legal tender) olarak kabul eden ilk ülke?", c: ["ElSalvador", "Arjantin", "Panama"], a: "ElSalvador" },
     { s: "Dogecoin hangi yıl, bir 'şaka' (meme) olarak piyasaya sürülmüştür?", c: ["2017", "2013", "2015"], a: "2013" },
     { s: "Bir altcoinin kendi blokzinciri yoksa ona ne ad verilir?", c: ["Fork", "Mainnet", "Token"], a: "Token" },
