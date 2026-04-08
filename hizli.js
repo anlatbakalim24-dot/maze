@@ -75,6 +75,41 @@ window.addEventListener('load', function() {
         document.getElementById("question-text").innerText = "Sorular yüklenemedi!";
     }
 });
+function loadQuestion() {
+    if (currentLevel > totalLevels) {
+        showSaveScreen();
+        return;
+    }
+    const q = sorular[Math.floor(Math.random() * sorular.length)];
+    document.getElementById("question-text").innerText = q.s;
+    const optDiv = document.getElementById("options");
+    optDiv.innerHTML = "";
+    
+    // c içindeki seçenekleri buton olarak oluşturuyoruz
+    q.c.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.className = "opt-btn";
+        btn.innerText = opt;
+        btn.onclick = () => checkAnswer(opt, q.a);
+        optDiv.appendChild(btn);
+    });
+}
+
+function checkAnswer(selected, correct) {
+    if (selected === correct) {
+        currentLevel++;
+        currentScore = Math.round(currentScore * 1.5);
+        document.getElementById("level-display").innerText = "Level: " + currentLevel;
+        document.getElementById("score-display").innerText = "Puan: " + currentScore;
+        loadQuestion();
+    } else {
+        alert("Yanlış cevap! Puanın yarıya düştü.");
+        currentScore = Math.round(currentScore / 2);
+        if (currentScore < 1) currentScore = 1; 
+        document.getElementById("score-display").innerText = "Puan: " + currentScore;
+        loadQuestion();
+    }
+}
 
 function startTimer() {
     // Varsa eski sayacı temizle
