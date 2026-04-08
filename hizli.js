@@ -61,7 +61,7 @@ const sorular = [
     { s: "Arı kuşu (Hummingbird) bir saniyede yaklaşık kaç kez kanat çırpar? 💻", c: ["20-30", "50-80", "110-130"], a: "50-80" },
     { s: "Bir aslanın kükremesi yaklaşık kaç kilometre mesafeden duyulabilir? 🦁", c: ["4", "6", "8"], a: "8" },
     { s: "Üç adet kalbi olan hayvan? 💻", c: ["Ahtapot", "Karides", "Salyangoz"], a: "Ahtapot" },
-    { s: "Machu Picchu hangi ülkededir? 🇵🇪", c: ["🇧🇴 Bolivya", "🇵🇪 Peru", "🇨🇴 Kolombiya"], a: "🇵🇪 Peru" },
+    { s: "Machu Picchu hangi ülkededir? ", c: ["🇧🇴 Bolivya", "🇵🇪 Peru", "🇨🇴 Kolombiya"], a: "🇵🇪 Peru" },
     { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "8" }
 ];
 
