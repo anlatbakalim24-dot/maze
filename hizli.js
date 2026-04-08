@@ -71,14 +71,16 @@ window.onload = function() {
     loadQuestion();
 };
 
-// Sayacı Başlat
 function startTimer() {
     timerInterval = setInterval(() => {
         timeLeft--;
         const mins = Math.floor(timeLeft / 60);
         const secs = timeLeft % 60;
-        // HTML'de id="level-display" olan yerin yanına süreyi yazdırır
-        document.getElementById("level-display").innerText = `Level: ${currentLevel} | Süre: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        
+        const levelElem = document.getElementById("level-display");
+        if(levelElem) {
+            levelElem.innerText = `Level: ${currentLevel} | Süre: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
         
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
@@ -93,90 +95,15 @@ function loadQuestion() {
         finishGame();
         return;
     }
+    
     const q = sorular[Math.floor(Math.random() * sorular.length)];
-    document.getElementById("question-text").innerText = q.s;
+    const qText = document.getElementById("question-text");
     const optDiv = document.getElementById("options");
-    optDiv.innerHTML = "";
-    
-    q.c.forEach(opt => {
-        const btn = document.createElement("button");
-        btn.className = "opt-btn";
-        btn.innerText = opt;
-        btn.onclick = () => checkAnswer(opt, q.a);
-        optDiv.appendChild(btn);
-    });
-}
+    const scoreDiv = document.getElementById("score-display");
 
-function checkAnswer(selected, correct) {
-    if (selected === correct) {
-        currentLevel++;
-        currentScore = Math.round(currentScore * 1.5);
-        document.getElementById("score-display").innerText = "Puan: " + currentScore;
-        loadQuestion();
-    } else {
-        currentScore = Math.round(currentScore / 2);
-        if (currentScore < 1) currentScore = 1; 
-        document.getElementById("score-display").innerText = "Puan: " + currentScore;
-        loadQuestion();
-    }
-}
+    if(qText && optDiv) {
+        qText.innerText = q.s;
+        optDiv.innerHTML = "";
+        if(scoreDiv) scoreDiv.innerText = "Puan: " + currentScore;
 
-function finishGame() {
-    clearInterval(timerInterval);
-    
-    // Kalan SANİYE kadar misli puan ekle (Örn: 120 saniye kaldıysa puan x 120)
-    if (timeLeft > 0) {
-        currentScore = currentScore * timeLeft;
-    }
-    
-    showSaveScreen();
-}
-// Sayaç fonksiyonunda görseli sadece dakika:saniye olarak tuttum, 
-// ama hesaplama yukarıdaki timeLeft (toplam saniye) üzerinden yapılacak.
-function startTimer() {
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        const mins = Math.floor(timeLeft / 60);
-        const secs = timeLeft % 60;
-        document.getElementById("level-display").innerText = `Level: ${currentLevel} | Süre: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
-        
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            alert("Süre bitti!");
-            showSaveScreen();
-        }
-    }, 1000);
-}
-function showSaveScreen() {
-    clearInterval(timerInterval);
-    document.getElementById("game-area").style.display = "none";
-    document.getElementById("save-area").style.display = "block";
-    document.getElementById("final-score").innerText = "Oyun Bitti! Toplam Puan: " + currentScore;
-}
 
-function saveScore() {
-    const nick = document.getElementById("nickname").value;
-    if (!nick) return alert("İsim giriniz!");
-    database.ref('leaderboard/').push({ name: nick, score: currentScore }).then(() => {
-        showLeaderboard();
-    });
-}
-
-function showLeaderboard() {
-    document.getElementById("save-area").style.display = "none";
-    document.getElementById("leader-area").style.display = "block";
-    database.ref('leaderboard/').orderByChild('score').limitToLast(10).once('value', (snap) => {
-        const list = [];
-        snap.forEach(child => { list.push(child.val()); });
-        list.reverse();
-        const body = document.getElementById("leader-list");
-        body.innerHTML = "";
-        list.forEach((item, i) => {
-            body.innerHTML += `<tr><td>${i+1}</td><td>${item.name}</td><td>${item.score}</td></tr>`;
-        });
-    });
-}
-
-// Oyunu başlat
-startTimer();
-loadQuestion();
