@@ -1,8 +1,7 @@
-// 1. Firebase Yapılandırması
+// 1. Firebase Yapılandırması (databaseURL buradan silindi, hata vermemesi için)
 const firebaseConfig = {
     apiKey: "AIzaSyBal_UHvT2NvH7kly-VzcNaVTj3Tr8GUOY",
     authDomain: "://firebaseapp.com",
-    databaseURL: "https://firebasedatabase.app",
     projectId: "maze-gage",
     storageBucket: "maze-gage.firebasestorage.app",
     messagingSenderId: "426479057060",
@@ -10,10 +9,14 @@ const firebaseConfig = {
 };
 
 // Firebase Başlatma
-const app = firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 
-// HATANIN KESİN ÇÖZÜMÜ: Veritabanını URL ile bu şekilde bağla
-const database = firebase.database(app, "https://firebasedatabase.app");
+// HATANIN KESİN ÇÖZÜMÜ: appInstance kullanarak adresi zorla tanıtıyoruz
+const appInstance = firebase.app();
+const database = appInstance.database("https://firebasedatabase.app");
+
 
 let currentLevel = 1;
 let currentScore = 2; // Başlangıç puanı 2
