@@ -9,8 +9,11 @@ const firebaseConfig = {
     appId: "1:426479057060:web:3cef87d31189f6d05b8e31"
 };
 
-if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
-const database = firebase.database();
+// Firebase Başlatma
+const app = firebase.initializeApp(firebaseConfig);
+
+// HATANIN KESİN ÇÖZÜMÜ: Veritabanını URL ile bu şekilde bağla
+const database = firebase.database(app, "https://firebasedatabase.app");
 
 let currentLevel = 1;
 let currentScore = 2; // Başlangıç puanı 2
