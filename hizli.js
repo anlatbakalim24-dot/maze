@@ -77,7 +77,7 @@ function startTimer() {
             levelElem.innerText = `Level: ${currentLevel}`;
             }
             // Süreyi güncelle (timer-display'e gönderiyoruz)
-        const timerElem = document.getElementById("timer-display")`;
+        const timerElem = document.getElementById("timer-display");
         if(timerElem) {
             timerElem.innerText = `Süre: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
         }
