@@ -65,13 +65,51 @@ const sorular = [
     { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "8" }
 ];
 
-// OYUNU BAŞLATAN ANA FONKSİYON (Sayfa yüklenince çalışır)
-window.onload = function() {
-    startTimer();
-    loadQuestion();
+// 1. Firebase Yapılandırması
+const firebaseConfig = {
+    apiKey: "AIzaSyBal_UHvT2NvH7kly-VzcNaVTj3Tr8GUOY",
+    authDomain: "://firebaseapp.com",
+    databaseURL: "https://firebasedatabase.app",
+    projectId: "maze-gage",
+    storageBucket: "maze-gage.firebasestorage.app",
+    messagingSenderId: "426479057060",
+    appId: "1:426479057060:web:3cef87d31189f6d05b8e31"
 };
 
+// Firebase Başlatma (Hata önleyici kontrol ile)
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+const database = firebase.database();
+
+// Değişkenler
+let currentLevel = 1;
+let currentScore = 10;
+const totalLevels = 25;
+let timeLeft = 300; 
+let timerInterval;
+
+// Sorular (Burayı kendi sorularınızla doldurun)
+const sorular = [
+    { s: "Dünya'nın uydusu hangisidir?", c: ["Ay", "Mars", "Güneş"], a: "Ay" },
+    { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "8" }
+];
+
+// Sayfa yüklendiğinde tetiklenecek
+window.addEventListener('load', function() {
+    console.log("Oyun başlatılıyor...");
+    if (sorular && sorular.length > 0) {
+        startTimer();
+        loadQuestion();
+    } else {
+        document.getElementById("question-text").innerText = "Sorular yüklenemedi!";
+    }
+});
+
 function startTimer() {
+    // Varsa eski sayacı temizle
+    if(timerInterval) clearInterval(timerInterval);
+    
     timerInterval = setInterval(() => {
         timeLeft--;
         const mins = Math.floor(timeLeft / 60);
@@ -105,5 +143,67 @@ function loadQuestion() {
         qText.innerText = q.s;
         optDiv.innerHTML = "";
         if(scoreDiv) scoreDiv.innerText = "Puan: " + currentScore;
+
+        q.c.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.className = "opt-btn";
+            btn.innerText = opt;
+            btn.onclick = () => checkAnswer(opt, q.a);
+            optDiv.appendChild(btn);
+        });
+    }
+}
+
+function checkAnswer(selected, correct) {
+    if (selected === correct) {
+        currentLevel++;
+        currentScore = Math.round(currentScore * 1.5);
+        loadQuestion();
+    } else {
+        alert("Yanlış cevap! Puanın yarıya düştü.");
+        currentScore = Math.round(currentScore / 2);
+        if (currentScore < 1) currentScore = 1; 
+        loadQuestion();
+    }
+}
+
+function finishGame() {
+    clearInterval(timerInterval);
+    // Kalan SANİYE çarpanı (Saniyeyi puanla çarpıyoruz)
+    if (timeLeft > 0) {
+        currentScore = currentScore * timeLeft;
+    }
+    showSaveScreen();
+}
+
+function showSaveScreen() {
+    clearInterval(timerInterval);
+    document.getElementById("game-area").style.display = "none";
+    document.getElementById("save-area").style.display = "block";
+    document.getElementById("final-score").innerText = "Oyun Bitti! Toplam Puan: " + currentScore;
+}
+
+function saveScore() {
+    const nick = document.getElementById("nickname").value;
+    if (!nick) return alert("İsim giriniz!");
+    database.ref('leaderboard/').push({ name: nick, score: currentScore }).then(() => {
+        showLeaderboard();
+    });
+}
+
+function showLeaderboard() {
+    document.getElementById("save-area").style.display = "none";
+    document.getElementById("leader-area").style.display = "block";
+    database.ref('leaderboard/').orderByChild('score').limitToLast(10).once('value', (snap) => {
+        const list = [];
+        snap.forEach(child => { list.push(child.val()); });
+        list.reverse();
+        const body = document.getElementById("leader-list");
+        body.innerHTML = "";
+        list.forEach((item, i) => {
+            body.innerHTML += `<tr><td>${i+1}</td><td>${item.name}</td><td>${item.score}</td></tr>`;
+        });
+    });
+}
 
 
