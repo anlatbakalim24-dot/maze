@@ -92,7 +92,7 @@ const sorular = [
     { s: "Machu Picchu hangi ülkededir?", c: ["Bolivya", "Peru", "Kolombiya"], a: "Peru" },
     { s: "12 - 4 kaç eder?", c: ["3", "8", "5"], a: "8" }
 ];
-
+let usedQuestions = []; // Sorulan soruların indekslerini burada tutacağız
 function startTimer() {
     timerInterval = setInterval(() => {
         timeLeft--;
@@ -120,11 +120,21 @@ function startTimer() {
 
 
 function loadQuestion() {
-    if (currentLevel > totalLevels) {
+    if (currentLevel > totalLevels || usedQuestions.length === sorular.length) {
         finishGame();
         return;
     }
-    const q = sorular[Math.floor(Math.random() * sorular.length)];
+
+    let randomIndex;
+    // Daha önce seçilmemiş bir indeks bulana kadar döndür
+    do {
+        randomIndex = Math.floor(Math.random() * sorular.length);
+    } while (usedQuestions.includes(randomIndex));
+
+    // Seçilen indeksi kullanılanlar listesine ekle
+    usedQuestions.push(randomIndex);
+
+    const q = sorular[randomIndex];
     document.getElementById("question-text").innerText = q.s;
     const optDiv = document.getElementById("options");
     optDiv.innerHTML = "";
@@ -138,6 +148,7 @@ function loadQuestion() {
         optDiv.appendChild(btn);
     });
 }
+
 
 function checkAnswer(selected, correct) {
     if (selected === correct) {
