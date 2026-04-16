@@ -18,7 +18,7 @@ const dbUrl = "https://maze-gage-default-rtdb.europe-west1.firebasedatabase.app/
 const database = app.database(dbUrl);
 
 let currentLevel = 1;
-let currentScore = 2; // Başlangıç puanı 2
+let currentScore = 5; // Başlangıç puanı 2
 const totalLevels = 25;
 let timeLeft = 180; // 3 dakika
 let timerInterval;
