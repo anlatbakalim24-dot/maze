@@ -131,7 +131,7 @@ function checkAnswer(selected, correct) {
 function finishGame() {
     clearInterval(timerInterval);
     if (timeLeft > 0) {
-        currentScore = Math.round(currentScore * (timeLeft / 60));
+        currentScore = currentScore * timeLeft;
     }
     showSaveScreen();
 }
