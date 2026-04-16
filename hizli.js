@@ -24,6 +24,16 @@ let timeLeft = 180; // 3 dakika
 let timerInterval;
 
 const sorular = [
+    { s: "Haluk Bilginer, 'Şahsiyet' dizisindeki performansı ile Uluslararası Emmy Ödülleri'nde hangi yıl 'En İyi Erkek Oyuncu' ödülünü almıştır?", c: ["2017", "2018", "2019"], a: "2019" },
+{ s: "Nuri Bilge Ceylan'ın hangi filmi 2014 yılında Cannes Film Festivali'nde en büyük ödül olan 'Altın Palmiye'yi kazanmıştır?", c: ["Uzak", "Kış Uykusu", "Bir Zamanlar Anadolu'da"], a: "Kış Uykusu" },
+{ s: "Merve Dizdar, 'Kuru Otlar Üstüne' filmindeki rolüyle hangi prestijli festivalde 'En İyi Kadın Oyuncu' ödülünü alarak tarihe geçmiştir?", c: ["Cannes", "Berlin", "Venedik"], a: "Cannes" },
+{ s: "1964 yılında düzenlenen ilk Antalya Altın Portakal Film Festivali'nde 'En İyi Erkek Oyuncu' ödülünü kim almıştır?", c: ["Yılmaz Güney", "Fikret Hakan", "İzzet Günay"], a: "İzzet Günay" },
+{ s: "Sibel Kekilli, 'Duvara Karşı' filmindeki rolüyle Avrupa'nın Oscarları sayılan Avrupa Film Ödülleri'nde (EFA) hangi dalda ödül almıştır?", c: ["En İyi Kadın Oyuncu", "En İyi Çıkış Yapan Oyuncu", "Jüri Özel Ödülü"], a: "En İyi Kadın Oyuncu" },
+    { s: "Aras Bulut İynemli'nin canlandırdığı 'Mete' karakteri, hangi dönem dizisi/filmi ile büyük çıkış yapmıştır?", c: ["İçerde", "Öyle Bir Geçer Zaman Ki", "7. Koğuştaki Mucize"], a: "Öyle Bir Geçer Zaman Ki" },
+    { s: "Çağatay Ulusoy'un bir terziyi canlandırdığı ve 'Peyami Dokumacı' karakterine hayat verdiği yapım hangisidir?", c: ["Terzi", "Hakan: Muhafız", "Kağıttan Hayatlar"], a: "Terzi" },
+    { s: "Serenay Sarıkaya'nın 'Şahsu' karakteriyle yer aldığı ve mistik bir hikayeyi konu alan dizi hangisidir?", c: ["Fi", "Şahmaran", "Aile"], a: "Şahmaran" },
+    { s: "Beren Saat'in 'Atiye' dizisindeki karakterinin mesleği nedir?", c: ["Ressam", "Arkeolog", "Yazar"], a: "Ressam" },
+    { s: "Kıvanç Tatlıtuğ'un 'Boğa Boğa' filminde canlandırdığı, İstanbul'dan kaçıp Assos'a yerleşen karakterin adı nedir?", c: ["Yalçın", "Yasin", "Kadir"], a: "Yalçın" },
     { s: "Güneş Sistemi'ndeki en yüksek dağ olan Olympus Mons hangi gezegendedir?", c: ["Venüs", "Mars", "Satürn"], a: "Mars" },
     { s: "Olay Ufku (Event Horizon) terimi hangi gök cismi ile doğrudan ilişkilidir?", c: ["Kara Delik", "Kuasar", "Nötron Yıldızı"], a: "Kara Delik" },
     { s: "Satürn'ün en büyük uydusu olan ve yoğun bir atmosfere sahip olan uydu hangisidir?", c: ["Europa", "Ganymede", "Titan"], a: "Titan" },
