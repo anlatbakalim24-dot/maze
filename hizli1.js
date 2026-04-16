@@ -118,7 +118,7 @@ function loadQuestion() {
 function checkAnswer(selected, correct) {
     if (selected === correct) {
         currentLevel++;
-        currentScore = Math.round(currentScore * 1.5);
+        currentScore = Math.round(currentScore * 1.25);
         loadQuestion();
     } else {
         alert("Yanlış cevap! Puanın yarıya düştü.");
@@ -131,7 +131,7 @@ function checkAnswer(selected, correct) {
 function finishGame() {
     clearInterval(timerInterval);
     if (timeLeft > 0) {
-        currentScore = currentScore * timeLeft;
+        currentScore = Math.round(currentScore * (timeLeft / 60));
     }
     showSaveScreen();
 }
