@@ -72,7 +72,7 @@ const sorular = [
     { s: "Şener Şen'in canlandırdığı unutulmaz 'Baran' karakteri hangi kült filmde yer almaktadır?", c: ["Eşkıya", "Muhsin Bey", "Zübük"], a: "Eşkıya" },
 { s: "Cem Yılmaz'ın hem yazıp hem oynadığı, 'Arif Işık' karakterinin ilk kez görüldüğü film hangisidir?", c: ["A.R.O.G", "G.O.R.A", "Yahşi Batı"], a: "G.O.R.A" },
 { s: "Haluk Bilginer'e Uluslararası Emmy Ödülü getiren 'Agâh Beyoğlu' karakteri hangi yapımda yer alır?", c: ["Kış Uykusu", "Masum", "Şahsiyet"], a: "Şahsiyet" },
-{ s: "Kemal Sunal'ın 'Kaymakam' zannedilen saf bir karakteri canlandırdığı, siyasi eleştiri içeren film hangisidir?", c: ["Zübük", "Çöpçüler Kralı", "Kibar Feyzo"], a: "Zübük" },
+{ s: "Kemal Sunal'ın 'Bir siyasetci karakterini canlandırdığı Zübük filmi'nin yazarı Kimdir", c: ["Rıfat Ilgaz", "Aziz Nesin", "Yaşar Kemal"], a: "Aziz Nesin" },
 { s: "Türkan Şoray'ın 'Asya' karakteriyle hafızalara kazındığı, sevginin emek olduğunu anlatan film hangisidir?", c: ["Vesikalı Yarim", "Selvi Boylum Al Yazmalım", "Dila Hanım"], a: "Selvi Boylum Al Yazmalım" },
     { s: "'Aşk-ı Memnu' dizisinde 'Behlül'ü kim canlandırdı?", c: ["Kıvanç Tatlıtuğ", "Kenan İmirzalıoğlu", "Çağatay Ulusoy"], a: "Kıvanç Tatlıtuğ" },
     { s: "'Ezel' dizisinin başrol oyuncusu kimdir? ♠️", c: ["Tuncel Kurtiz", "Kenan İmirzalıoğlu", "Barış Falay"], a: "Kenan İmirzalıoğlu" },
