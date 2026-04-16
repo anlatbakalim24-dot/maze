@@ -26,12 +26,12 @@ let timerInterval;
 const sorular = [
     { s: "Güneş Sistemi'ndeki en yüksek dağ olan Olympus Mons hangi gezegendedir?", c: ["Venüs", "Mars", "Satürn"], a: "Mars" },
     { s: "Olay Ufku (Event Horizon) terimi hangi gök cismi ile doğrudan ilişkilidir?", c: ["Kara Delik", "Kuasar", "Nötron Yıldızı"], a: "Kara Delik" },
-    { s: "Satürn'ün en büyük uydusu olan ve yoğun bir atmosfere sahip olan uydu hangisidir?", c: ["Europa", "Ganymede", "Titan"], a: "Titan" }
+    { s: "Satürn'ün en büyük uydusu olan ve yoğun bir atmosfere sahip olan uydu hangisidir?", c: ["Europa", "Ganymede", "Titan"], a: "Titan" },
     { s: "Dünya'nın uydusu hangisidir?", c: ["Ay", "Mars", "Güneş"], a: "Ay" },
-    { s: "Dünyanın en çok adasına sahip olan ülkesi hangisidir?", c: ["Endonezya", "Filipinler", "İsveç"], a: "İsveç" }
+    { s: "Dünyanın en çok adasına sahip olan ülkesi hangisidir?", c: ["Endonezya", "Filipinler", "İsveç"], a: "İsveç" },
     { s: "Türkiye'nin nüfus bakımından en büyük ilçesi hangisidir?", c: ["Esenyurt", "Çankaya", "Keçiören"], a: "Esenyurt" },
     { s: "Yüzölçümü bakımından Türkiye'nin en büyük ilçesi hangisidir?", c: ["Cihanbeyli", "Siverek", "Gürün"], a: "Cihanbeyli" },
-    { s: "Ege Bölgesi'nde yer almasına rağmen, bağlı olduğu il İç Anadolu Bölgesi'nde olan ilçe hangisidir?", c: ["Dursunbey", "Emirdağ", "Eşme"], a: "Emirdağ" }
+    { s: "Ege Bölgesi'nde yer almasına rağmen, bağlı olduğu il İç Anadolu Bölgesi'nde olan ilçe hangisidir?", c: ["Dursunbey", "Emirdağ", "Eşme"], a: "Emirdağ" },
     { s: "Tiyatrocular arasında hangi Shakespeare oyununun adını sahnede anmak büyük uğursuzluktur?", c: ["Macbeth", "Hamlet", "Romeo ve Juliet"], a: "Macbeth" },
     { s: "1700 lerde bir gemide hangi meyva'nın taşınması felaket sebebi sayılırdı.", c: ["Ayva", "Hindistan Cevizi", "Muz"], a: "Muz" },
     { s: "Antik Roma’da damadın gelini eşikten kucağında taşıyarak geçirmesinin sebebi neydi?", c: ["Evdeki kötü ruhları korkutmak", "Gelinin yorulmasını engellemek", "Gelinin ayağının takılmasının uğursuzluk sayılması"], a: "Gelinin ayağının takılmasının uğursuzluk sayılması" },
