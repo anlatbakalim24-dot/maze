@@ -171,7 +171,7 @@ window.onload = function() {
     loadQuestion();
 };
 // Cloudflare korumalı silme fonksiyonu
-async function adminReset(sifre) {
+window.adminReset = async function(sifre) {
     const workerUrl = "https://hizlij3s.anlatbakalim24.workers.dev"; // BURAYI KENDİ WORKER URL'NİZLE DEĞİŞTİRİN
 
     try {
