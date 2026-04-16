@@ -170,3 +170,31 @@ window.onload = function() {
     startTimer();
     loadQuestion();
 };
+// Cloudflare korumalı silme fonksiyonu
+async function adminReset(sifre) {
+    const workerUrl = "hizlij3s.anlatbakalim24.workers.dev"; // BURAYI KENDİ WORKER URL'NİZLE DEĞİŞTİRİN
+
+    try {
+        const response = await fetch(workerUrl, {
+            method: "POST",
+            body: JSON.stringify({ password: sifre }),
+            headers: { "Content-Type": "application/json" }
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            if (confirm("Şifre doğru. Firebase verileri silinsin mi?")) {
+                database.ref('leaderboard/').remove()
+                    .then(() => {
+                        alert("İşlem başarılı!");
+                        location.reload();
+                    });
+            }
+        } else {
+            alert("Hatalı şifre! Yetkiniz yok.");
+        }
+    } catch (err) {
+        alert("Bağlantı hatası: " + err);
+    }
+}
