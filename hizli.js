@@ -172,7 +172,7 @@ window.onload = function() {
 };
 // Cloudflare korumalı silme fonksiyonu
 async function adminReset(sifre) {
-    const workerUrl = "hizlij3s.anlatbakalim24.workers.dev"; // BURAYI KENDİ WORKER URL'NİZLE DEĞİŞTİRİN
+    const workerUrl = "https://hizlij3s.anlatbakalim24.workers.dev"; // BURAYI KENDİ WORKER URL'NİZLE DEĞİŞTİRİN
 
     try {
         const response = await fetch(workerUrl, {
